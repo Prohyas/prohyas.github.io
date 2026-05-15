@@ -5,39 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prohyas Portfolio</title>
     <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            width: 100%; 
-            background-color: #000; 
-            overflow-x: hidden; /* Evita que se mueva de lado */
-        }
-        
-        /* Contenedor que recorta la barra de abajo de Canva */
-        .viewport-fix {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
+        :root {
+            --negro: #0a0a0a;
+            --gris-oscuro: #121212;
+            --rojo: #a31d3d;
+            --blanco: #ffffff;
+            --gris-texto: #b0b0b0;
         }
 
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--negro);
+            color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* Hero / Cabecera */
+        header {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://prohyas.github.io/banner.jpg'); /* Si subes un banner */
+            background-size: cover;
+            border-bottom: 4px solid var(--rojo);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: var(--rojo);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Sección de Información */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--gris-oscuro);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #222;
+        }
+
+        .card h2 { color: var(--rojo); margin-top: 0; font-size: 1.2rem; }
+        .card p { color: var(--gris-texto); font-size: 0.95rem; }
+
+        /* Galería de Trabajos */
+        .work-section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .work-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--blanco);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .work-item {
+            background: var(--gris-oscuro);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #1a1a1a;
+        }
+
+        .work-item:hover { transform: translateY(-10px); border-color: var(--rojo); }
+
+        .work-item img {
             width: 100%;
-            height: calc(100% + 40px); /* Hacemos el iframe más alto para "empujar" la barra fuera de la vista */
-            border: none;
+            height: auto;
+            display: block;
+        }
+
+        .work-item .title {
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: var(--gris-texto);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            color: #444;
+            font-size: 0.8rem;
+        }
+
+        /* Móvil */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            header { height: 300px; }
         }
     </style>
 </head>
 <body>
-    <div class="viewport-fix">
-        <iframe src="https://www.canva.com/design/DAHJuufwGCs/5477qlmDHzrHl1TeZlLxng/view?embed" 
-                allowfullscreen="allowfullscreen" 
-                allow="fullscreen">
-        </iframe>
-    </div>
+
+    <header>
+        <h1>Prohyas Portfolio</h1>
+        <p style="color: var(--gris-texto)">Diseño Gráfico • Edición de Imagen • Creatividad</p>
+    </header>
+
+    <section class="info-grid">
+        <div class="card">
+            <h2>🇪🇸 INFORMACIÓN</h2>
+            <p>Actualmente trabajo con Canva, Gimp y Photoshop. Los controlo a nivel profesional. Soy de España y me dedico a crear contenido visual de alto impacto.</p>
+        </div>
+        <div class="card">
+            <h2>🇬🇧 INFORMATION</h2>
+            <p>I currently work with Canva, Gimp and Photoshop. I control them at a professional level. I am from Spain and I create high-impact visual content.</p>
+        </div>
+    </section>
+
+    <section class="work-section">
+        <h3>MIS TRABAJOS</h3>
+        <div class="gallery">
+            
+            <div class="work-item">
+                <img src="foto1.jpg" alt="Diseño Prohyas">
+                <div class="title">PROYECTO 01</div>
+            </div>
+
+            <div class="work-item">
+                <img src="foto2.jpg" alt="Diseño Prohyas">
+                <div class="title">PROYECTO 02</div>
+            </div>
+
+            <div class="work-item">
+                <img src="foto3.jpg" alt="Diseño Prohyas">
+                <div class="title">PROYECTO 03</div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 PROHYAS - TODOS LOS DERECHOS RESERVADOS
+    </footer>
+
+</body>
+</html>
+
+    <footer>
+        <p>&copy; 2026 Prohyas - Creado desde cero</p>
+    </footer>
+
 </body>
 </html>
