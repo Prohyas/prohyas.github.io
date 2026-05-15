@@ -5,32 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prohyas Portfolio</title>
     <style>
-        /* Eliminamos márgenes y forzamos que el contenido llene la pantalla */
         body, html { 
             margin: 0; 
             padding: 0; 
             height: 100%; 
             width: 100%; 
-            overflow: hidden; 
-            background-color: #0e0e0e; /* Color oscuro para que no haya fogonazos blancos */
+            background-color: #000; 
+            overflow-x: hidden; /* Evita que se mueva de lado */
         }
-        .main-container {
+        
+        /* Contenedor que recorta la barra de abajo de Canva */
+        .viewport-fix {
+            position: relative;
             width: 100%;
             height: 100vh;
+            overflow: hidden;
         }
+
         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% + 40px); /* Hacemos el iframe más alto para "empujar" la barra fuera de la vista */
             border: none;
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <iframe loading="lazy" 
-            src="https://www.canva.com/design/DAHJuufwGCs/5477qlmDHzrHl1TeZlLxng/view?embed" 
-            allowfullscreen="allowfullscreen" 
-            allow="fullscreen">
+    <div class="viewport-fix">
+        <iframe src="https://www.canva.com/design/DAHJuufwGCs/5477qlmDHzrHl1TeZlLxng/view?embed" 
+                allowfullscreen="allowfullscreen" 
+                allow="fullscreen">
         </iframe>
     </div>
 </body>
